@@ -6,7 +6,7 @@ Fast transaction download for [boobank](http://weboob.org).
 * Do you have a large number of accounts ?
 * Are you tired of waiting for `boobank` to complete ?
 * Are you tired of having to import multiple OFX/QFX files ?
-* Are you tired that account balances do not import properly ?
+* Would you wish that account balances are import properly ?
 
 If any of the above rings a bell, then `booqfx` is for you.
 
@@ -18,14 +18,14 @@ In practice, `booqfx` uses Unix's command `parallel` to ensure efficient and saf
 ## Single OFX/QFX
 It is not enough to just run several instances of `boobank` in parallel, but we also want to generate one single OFX/QFX file instead of the many OFX files that each instance of `boobank` will create. 
 
-In practice, `booqfx.sh` redirects the output of the many instances of `boobank` to the following file:
+`booqfx.sh` redirects the output of the many instances of `boobank` to the following file:
 ```
 ~/Downloads/boobank.qfx
 ```
 It also uses `sed` to format the file so that it can be imported into financial programs like Quicken.
 
 ## Configuration
-When you first run `booqfx.sh`, it will use `boobank` to retrieve all the accounts that you have configured in `boobank`. It will cache the information so that subsequent calls to `booqfx` are faster.
+When you first run `booqfx.sh`, it will use `boobank` to retrieve all the accounts that you have configured previously in `boobank`. It will cache this information so that subsequent calls to `booqfx` are faster.
 
 It will also create the following file:
 ```
